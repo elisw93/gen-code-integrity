@@ -13,5 +13,5 @@ cd ${SCRATCH}
 eval "${GENERATE_CMD}"
 
 # error and quit (because of -e) if there is a diff
-diff --recursive --new-file --unified=0 {${SCRATCH},${GITHUB_WORKSPACE}}/${DIFF_ROOT}
+diff --recursive --new-file --unified=0 {${SCRATCH},${GITHUB_WORKSPACE}}/${DIFF_ROOT} || echo "Generated files are stale. Please run \`${GENERATE_CMD}\` and check in the result." && false
 
