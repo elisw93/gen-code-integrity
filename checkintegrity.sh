@@ -11,12 +11,7 @@ cp -R ${GITHUB_WORKSPACE} ${SCRATCH}
 cd ${SCRATCH}
 
 eval "${GENERATE_CMD}"
+
+# error and quit (because of -e) if there is a diff
 diff --recursive --new-file --unified=0 {${SCRATCH},${GITHUB_WORKSPACE}}/${DIFF_ROOT}
-STATUS=$?
-
-if [[ $? -eq 0 ]]; then
-    exit 1
-fi
-
-exit 0
 
