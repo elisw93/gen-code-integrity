@@ -2,7 +2,7 @@
 set -e
 set -x
 
-SCRATCH="/scratch"
+SCRATCH="${GITHUB_ACTION_PATH}/scratch"
 
 GENERATE_CMD="$1"
 DIFF_ROOT="$2"
