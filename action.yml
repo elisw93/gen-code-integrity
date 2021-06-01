@@ -10,5 +10,5 @@ inputs:
 runs:
     using: "composite"
     steps:
-      - run: ./checkintegrity.sh "${{ inputs.generate-cmd }}" "${{ inputs.diff-root }}"
+      - run: ${{ github.action_path }}/checkintegrity.sh "${{ inputs.generate-cmd }}" "${{ inputs.diff-root }}"
         shell: bash

@@ -8,7 +8,7 @@ SCRATCH="/scratch"
 GENERATE_CMD="$1"
 DIFF_ROOT="$2"
 
-cp --archive ${REPO_HEAD} ${SCRATCH}
+cp -R ${REPO_HEAD} ${SCRATCH}
 cd ${SCRATCH}
 
 `${GENERATE_CMD}`
