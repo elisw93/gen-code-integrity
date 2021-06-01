@@ -2,17 +2,16 @@
 set -e
 set -x
 
-REPO_HEAD="/github/workspace"
 SCRATCH="/scratch"
 
 GENERATE_CMD="$1"
 DIFF_ROOT="$2"
 
-cp -R ${REPO_HEAD} ${SCRATCH}
+cp -R ${GITHUB_WORKSPACE} ${SCRATCH}
 cd ${SCRATCH}
 
 `${GENERATE_CMD}`
-diff --recursive --new-file --unified=0 {${WORKSPACE},${REPO_HEAD}}/${DIFF_ROOT}
+diff --recursive --new-file --unified=0 {${WORKSPACE},${GITHUB_WORKSPACE}}/${DIFF_ROOT}
 STATUS=$?
 
 if [[ $? -eq 0 ]]; then
