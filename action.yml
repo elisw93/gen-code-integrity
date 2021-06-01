@@ -1,0 +1,14 @@
+name: "Generated code integrity check"
+description: "Generate code and make sure that the output matches HEAD"
+inputs:
+    generate-cmd:
+        description: "Command that we can run in the repository root to generate code"
+        required: true
+    diff-root:
+        description: "Directory inside the repo to diff"
+        required: true
+runs:
+    using: "composite"
+    steps:
+      - run: ./checkintegrity.sh "${{ inputs.generate-cmd }}" "${{ inputs.diff-root }}"
+        shell: bash
