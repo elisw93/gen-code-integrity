@@ -11,7 +11,7 @@ cp -R ${GITHUB_WORKSPACE} ${SCRATCH}
 cd ${SCRATCH}
 
 eval "${GENERATE_CMD}"
-diff --recursive --new-file --unified=0 {${WORKSPACE},${GITHUB_WORKSPACE}}/${DIFF_ROOT}
+diff --recursive --new-file --unified=0 {${SCRATCH},${GITHUB_WORKSPACE}}/${DIFF_ROOT}
 STATUS=$?
 
 if [[ $? -eq 0 ]]; then
